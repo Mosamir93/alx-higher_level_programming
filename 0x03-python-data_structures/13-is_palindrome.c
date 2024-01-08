@@ -18,7 +18,6 @@ int is_palindrome(listint_t **head)
 	{
 		current = current->next;
 	}
-	current = *head;
 	f_half = *head;
 	s_half = *head;
 	k = (len + 1) / 2;
