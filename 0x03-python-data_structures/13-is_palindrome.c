@@ -22,17 +22,16 @@ int is_palindrome(listint_t **head)
 	current = *head;
 	f_half = *head;
 	s_half = *head;
-	sm_half = *head;
 	k = (len + 1) / 2;
 
 	for (i = 1; i <= k; i++)
 	{
-		sm_half = sm_half->next;
 		s_half = s_half->next;
 	}
 	k = len / 2;
 	for (i = 1; i <= len / 2; i++)
 	{
+		sm_half = s_half;
 		for (j = 1; j <= k; j++)
 		{
 			sm_half = sm_half->next;
@@ -41,7 +40,6 @@ int is_palindrome(listint_t **head)
 			return (0);
 
 		f_half = f_half->next;
-		sm_half = s_half;
 		k--;
 	}
 	return (1);
