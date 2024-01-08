@@ -11,12 +11,12 @@ int is_palindrome(listint_t **head)
 	int len, i, j, k;
 	listint_t *current, *f_half, *s_half, *sm_half;
 
-	current = *head;
+	f_half = *head;
 	if (head == NULL || *head == NULL)
 		return (1);
-	for (len = 0; current->next != NULL; len++)
+	for (len = 0; f_half->next != NULL; len++)
 	{
-		current = current->next;
+		f_half = f_half->next;
 	}
 	f_half = *head;
 	s_half = *head;
