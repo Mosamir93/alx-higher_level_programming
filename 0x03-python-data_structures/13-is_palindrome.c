@@ -27,7 +27,7 @@ int is_palindrome(listint_t **head)
 	if (k % 2 != 0)
 		k += 1;
 
-	for (i = 0; i <= (len / 2); i++)
+	for (i = 0; i <= k; i++)
 	{
 		sm_half = sm_half->next;
 		s_half = s_half->next;
