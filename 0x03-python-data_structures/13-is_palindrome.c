@@ -1,43 +1,56 @@
 #include "lists.h"
 
 /**
+ * reverse_list - reverses a linked list
+ * @head: pointer to pointer to the head of the list
+ */
+void reverse_list(listint_t **head)
+{
+	listint_t *prev = NULL, *current = *head, *next;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+
+	*head = prev;
+}
+
+/**
  * is_palindrome - checks if a singly linked list is a palindrome
  * @head: pointer to pointer to the head of the list
- * Return: 1 if palindrome or empty 0 if not
+ * Return: 1 if palindrome or empty, 0 if not
  */
-
 int is_palindrome(listint_t **head)
 {
-	int len, i, j, k;
-	listint_t *f_half, *s_half, *sm_half;
+	listint_t *slow = *head, *fast = *head, *prev_slow = *head;
 
-	f_half = *head;
 	if (head == NULL || *head == NULL)
 		return (1);
-	for (len = 0; f_half->next != NULL; len++)
-	{
-		f_half = f_half->next;
-	}
-	f_half = *head;
-	s_half = *head;
-	k = (len + 1) / 2;
 
-	for (i = 0; i <= k; i++)
+	while (fast != NULL && fast->next != NULL)
 	{
-		s_half = s_half->next;
+		fast = fast->next->next;
+		prev_slow = slow;
+		slow = slow->next;
 	}
-	k = len / 2;
-	for (i = 1; i <= len / 2; i++, k--)
+
+	if (fast != NULL)
+		slow = slow->next;
+
+	reverse_list(&slow);
+
+	while (slow != NULL)
 	{
-		sm_half = s_half;
-		for (j = 1; j < k; j++)
-		{
-			sm_half = sm_half->next;
-		}
-		if (f_half->n != sm_half->n)
+		if (slow->n != (*head)->n)
 			return (0);
 
-		f_half = f_half->next;
+		slow = slow->next;
+		*head = (*head)->next;
 	}
+
 	return (1);
 }
