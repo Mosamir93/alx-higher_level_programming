@@ -33,7 +33,7 @@ int is_palindrome(listint_t **head)
 	k = len / 2;
 	for (i = 1; i <= len / 2; i++)
 	{
-		for (j = 1; j < k; j++)
+		for (j = 1; j <= k; j++)
 		{
 			sm_half = sm_half->next;
 		}
