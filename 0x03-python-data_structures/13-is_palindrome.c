@@ -23,7 +23,7 @@ int is_palindrome(listint_t **head)
 	f_half = *head;
 	s_half = *head;
 	sm_half = *head;
-	k = len / 2;
+	k = (len + 1) / 2;
 	if (len % 2 != 0)
 		k += 1;
 
