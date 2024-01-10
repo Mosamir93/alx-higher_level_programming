@@ -5,6 +5,8 @@
  * @p: pointer to the python list
  */
 
+void print_python_bytes(PyObject *p);
+
 void print_python_list(PyObject *p)
 {
 	int i;
@@ -29,7 +31,7 @@ void print_python_list(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	unsigned char size, i;
+	Py_ssize_t size, i;
 	char *str;
 
 	printf("[.] bytes object info\n");
