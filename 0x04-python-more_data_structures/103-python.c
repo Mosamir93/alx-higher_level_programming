@@ -41,7 +41,7 @@ void print_python_bytes(PyObject *p)
 	printf("  first %ld bytes: ", size + 1 < 10 ? size + 1 : 10);
 	for (i = 0; i <= size && i < 10; i++)
 	{
-		printf("%02hhx", (unsigned char)str[i]);
+		printf("%02hhx", str[i]);
 		if (i <= size - 1)
 			printf(" ");
 	}
