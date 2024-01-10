@@ -15,7 +15,8 @@ def roman_to_int(roman_string):
     result = 0
     for i in range(len(roman_string)):
         current = roman_dict[roman_string[i]]
-        if i == len(roman_string) - 1 or current >= roman_dict[roman_string[i + 1]]:
+        is_last = i == len(roman_string) - 1
+        if is_last or current >= roman_dict[roman_string[i + 1]]:
             result += current
         else:
             result -= current
