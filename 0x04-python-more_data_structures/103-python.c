@@ -29,19 +29,19 @@ void print_python_bytes(PyObject *p)
 	char *str;
 
 	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
+	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 	size = ((PyVarObject *)p)->ob_size;
 	str = ((PyBytesObject *)p)->ob_sval;
-	printf("  size: %ld\n", size);
+	printf("  size: %ld\n", size );
 	printf("  trying string: %s\n", str);
 	printf("  first %ld bytes: ", size + 1 < 10 ? size + 1 : 10);
 	for (i = 0; i <= size && i < 10; i++)
 	{
-		printf("%02x", (unsigned char)str[i]);
+		printf("%02hhx", (unsigned char)str[i]);
 		if (i <= size - 1)
 			printf(" ");
 	}
