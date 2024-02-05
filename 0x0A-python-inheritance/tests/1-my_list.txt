@@ -1,11 +1,11 @@
-the ""1-my_list"" module
-=============================
+The ``1-my_list`` module
+============================
 
-using ""1-my_list""
------------------------
+Using ``1-mylist``
+---------------------
 
 Import function from module:
-    >>>Mylist = __import__('1-my_list').MyList
+    >>> MyList = __import__('1-my_list').MyList
 
 Correct Class Type test:
     >>> ml = MyList()
