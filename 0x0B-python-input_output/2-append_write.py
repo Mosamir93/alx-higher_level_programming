@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""Write module."""
+"""Append module."""
 
 
 def write_file(filename="", text=""):
     """Function definition."""
-    with open(filename, mode="w", encoding="utf-8") as file:
+    with open(filename, mode="a", encoding="utf-8") as file:
         return file.write(text)
