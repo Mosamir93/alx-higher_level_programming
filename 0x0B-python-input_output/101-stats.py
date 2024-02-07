@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Read stdin module."""
-import sys
 
 
 def print_stats(total_size, status_counts):
