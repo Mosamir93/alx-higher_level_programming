@@ -10,6 +10,6 @@ list = []
 try:
     list = load_from_json_file(file)
 except Exception:
-    pass
+    save_to_json_file(list, file)
 list.extend(sys.argv[1:])
 save_to_json_file(list, file)
