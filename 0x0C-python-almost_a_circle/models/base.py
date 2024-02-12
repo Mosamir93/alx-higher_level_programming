@@ -67,15 +67,15 @@ class Base:
                     dict = object.to_dictionary()
                     if cls.__name__ == "Square":
                         writer.writerow([dict['id'],
-                            dict['size'],
-                            dict['x'],
-                            dict['y']])
+                                        dict['size'],
+                                        dict['x'],
+                                        dict['y']])
                     elif cls.__name__ == "Rectangle":
                         writer.writerow([dict['id'],
-                            dict['width'],
-                            dict['height'],
-                            dict['x'],
-                            dict['y']])
+                                        dict['width'],
+                                        dict['height'],
+                                        dict['x'],
+                                        dict['y']])
 
                         @classmethod
     def load_from_file_csv(cls):
