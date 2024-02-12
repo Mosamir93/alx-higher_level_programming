@@ -106,7 +106,7 @@ class Base:
                                 'height': int(line[2]),
                                 'x': int(line[3]),
                                 'y': int(line[4])}
-                        attr = cls.create(**dict)
+                    attr = cls.create(**dict)
                     attrs.append(attr)
             return attrs
         except FileNotFoundError:
