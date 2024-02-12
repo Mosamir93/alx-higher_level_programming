@@ -46,7 +46,10 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Creates an instance and sets it's attributes."""
-        dummy = cls(1, 1)
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
