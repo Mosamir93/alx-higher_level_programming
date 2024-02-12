@@ -27,7 +27,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         if list_objs is None:
-           list_objs = []
+            list_objs = []
         file = cls.__name__ + ".json"
         str = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
         with open(file, "w") as fl:
@@ -39,13 +39,13 @@ class Base:
             return json.loads(json_string)
         else:
             return []
-        
+
     @classmethod
     def create(cls, **dictionary):
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
-    
+
     @classmethod
     def load_from_file(cls):
         file = cls.__name__ + ".json"
@@ -86,9 +86,9 @@ class Base:
                 attrs = []
                 for line in reader:
                     if cls.__name__ == "Square":
-                        dict = {'id': int(line[0]), 
-                                'size': int(line[1]), 
-                                'x': int(line[2]), 
+                        dict = {'id': int(line[0]),
+                                'size': int(line[1]),
+                                'x': int(line[2]),
                                 'y': int(line[3])}
                     elif cls.__name__ == "Rectangle":
                         dict = {'id': int(line[0]),
@@ -124,7 +124,7 @@ class Base:
             pen.up()
             pen.goto(0, 0)
             pen.down()
-        
+
         pen.color("green")
         pen.shape("square")
 
