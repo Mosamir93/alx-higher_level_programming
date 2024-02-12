@@ -73,9 +73,9 @@ class Rectangle(Base):
         return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
                 f"{self.width}/{self.height}")
 
-    def update(self, *args, **kwargs):
-        if args and len(args) > 0:
-            attrs = ['id', 'width', 'height', 'x', 'y']
+        def update(self, *args, **kwargs):
+            if args and len(args) > 0:
+                attrs = ['id', 'width', 'height', 'x', 'y']
             for i in range(len(args)):
                 setattr(self, attrs[i], args[i])
         else:
@@ -84,9 +84,9 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         return {
-            'x': self.x,
-            'y': self.y,
-            'id': self.id,
-            'height': self.height,
-            'width': self.width
-        }
+                'x': self.x,
+                'y': self.y,
+                'id': self.id,
+                'height': self.height,
+                'width': self.width
+                }
