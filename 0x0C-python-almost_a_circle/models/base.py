@@ -67,17 +67,17 @@ class Base:
                     dict = object.to_dictionary()
                     if cls.__name__ == "Square":
                         writer.writerow([dict['id'],
-                                         dict['size'],
-                                         dict['x'],
-                                         dict['y']])
+                            dict['size'],
+                            dict['x'],
+                            dict['y']])
                     elif cls.__name__ == "Rectangle":
                         writer.writerow([dict['id'],
-                                         dict['width'],
-                                         dict['height'],
-                                         dict['x'],
-                                         dict['y']])
+                            dict['width'],
+                            dict['height'],
+                            dict['x'],
+                            dict['y']])
 
-    @classmethod
+                        @classmethod
     def load_from_file_csv(cls):
         file = cls.__name__ + ".csv"
         try:
@@ -96,7 +96,7 @@ class Base:
                                 'height': int(line[2]),
                                 'x': int(line[3]),
                                 'y': int(line[4])}
-                    attr = cls.create(**dict)
+                        attr = cls.create(**dict)
                     attrs.append(attr)
             return attrs
         except FileNotFoundError:
