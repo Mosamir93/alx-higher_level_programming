@@ -19,6 +19,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """Converts a list into a json string."""
         if list_dictionaries and len(list_dictionaries) > 0:
             return json.dumps(list_dictionaries)
         else:
@@ -26,6 +27,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """Saves json string into file."""
         if list_objs is None:
             list_objs = []
         file = cls.__name__ + ".json"
@@ -35,6 +37,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """Reads a json string from a file."""
         if json_string and len(json_string) > 0:
             return json.loads(json_string)
         else:
@@ -42,12 +45,14 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """Creates an instance and sets it's attributes."""
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
     @classmethod
     def load_from_file(cls):
+        """Returns a list of instances from a json file."""
         file = cls.__name__ + ".json"
         try:
             with open(file, "r", encoding="utf-8") as fl:
@@ -59,6 +64,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """Serializes into csv."""
         file = cls.__name__ + ".csv"
         with open(file, mode="w", newline="", encoding="utf-8") as fl:
             writer = csv.writer(fl)
@@ -77,8 +83,9 @@ class Base:
                                         dict['x'],
                                         dict['y']])
 
-                        @classmethod
+    @classmethod
     def load_from_file_csv(cls):
+        """Deserializes from csv."""
         file = cls.__name__ + ".csv"
         try:
             with open(file, mode="r", encoding="utf-8") as fl:
@@ -104,6 +111,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """Draws rectangles and squares using turtule module."""
         screen = turtle.Screen()
         pen = turtle.Turtle()
         pen.speed(2)
