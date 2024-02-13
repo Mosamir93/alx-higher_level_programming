@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 """Base class test module."""
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 import unittest
 from unittest import TestCase
+from unittest.mock import patch
+import os
 from io import StringIO
 import json
 
@@ -56,5 +60,49 @@ class testbase(TestCase):
         res = Base.to_json_string(data)
         self.assertEqual(res, expected)
 
+    def test_id2(self):
+        base = Base('3')
+        self.assertEqual(base.id, '3')
+
+    def test_args(self):
+        with self.assertRaises(TypeError):
+            base = Base(1, 2)
+    
+    def test_save_to_file_None_rec(self):
+        Rectangle.save_to_file(None)
+        result = "[]\n"
+        file = "Rectangle.json"
+        with open(file, mode='r') as fl:
+            with patch('sys.stdout', new=StringIO()) as out:
+                print(fl.read())
+                self.assertEqual(out.getvalue(), result)
+            try:
+                os.remove(file)
+            except:
+                pass
+
+    def test_save_to_file_empty_rec(self):
+        Rectangle.save_to_file([])
+        with open('Rectangle.json') as fl:
+            self.assertEqual(fl.read(), '[]')
+
+    def test_save_to_file_None_sq(self):
+        Square.save_to_file(None)
+        result = "[]\n"
+        file = "Square.json"
+        with open(file, mode='r') as fl:
+            with patch('sys.stdout', new=StringIO()) as out:
+                print(fl.read())
+                self.assertEqual(out.getvalue(), result)
+            try:
+                os.remove(file)
+            except:
+                pass
+
+    def test_save_to_file_empty_sq(self):
+        Square.save_to_file([])
+        with open('Square.json') as fl:
+            self.assertEqual(fl.read(), '[]')
+ 
     if __name__ == "__main__":
         unittest.main()
