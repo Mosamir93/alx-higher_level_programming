@@ -2,5 +2,6 @@
     "files.associations": {
         "limits.h": "c",
         "stdlib.h": "c"
-    }
+    },
+    "python.analysis.typeCheckingMode": "basic"
 }
