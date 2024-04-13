@@ -19,13 +19,8 @@ if __name__ == "__main__":
                     FROM cities
                     INNER JOIN states
                     ON cities.state_id = states.id
-                    where states.name = %s
+                    where states.name LIKE BINARY %s
                     ORDER BY cities.id"""
         cursor.execute(query, (states_name,))
         cities = cursor.fetchall()
-        for i, city in enumerate(cities):
-            print(city[0], end='')
-            if i < len(cities) - 1:
-                print(", ", end='')
-            else:
-                print()
+        print(", ".join(city[0] for city in cities))
