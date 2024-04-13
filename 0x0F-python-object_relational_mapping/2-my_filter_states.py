@@ -18,9 +18,9 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
     cursor.execute("""SELECT * FROM states
-                   WHERE name = %s
-                   ORDER BY id""",
-                   (state_name,))
+                   WHERE name = '{}'
+                   ORDER BY id""".format
+                   (state_name))
     rows = cursor.fetchall()
     for row in rows:
         print(row)
