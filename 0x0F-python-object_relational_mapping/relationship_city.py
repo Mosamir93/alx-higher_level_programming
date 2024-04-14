@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """City class module."""
-import sys
 from sqlalchemy import Column, Integer, String, ForeignKey
 from relationship_state import Base
 
