@@ -18,6 +18,6 @@ if __name__ == "__main__":
         if j_res == {}:
             print("No result")
         else:
-            print(f"[{j_res['id']}] {j_res['name']}") 
+            print(f"[{j_res.get('id')}] {j_res.get('name')}")
     except ValueError:
         print("Not a valid JSON")
