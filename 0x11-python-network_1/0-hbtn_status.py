@@ -7,6 +7,6 @@ with request.urlopen(url) as res:
     body = res.read()
 
 print("Body response:")
-print("\t- type: ", type(body))
-print("\t- content: ", body)
-print("\t- utf8 content: ", body.decode('utf-8'))
+print("    - type: ", type(body))
+print("    - content: ", body)
+print("    - utf8 content: ", body.decode('utf-8'))
