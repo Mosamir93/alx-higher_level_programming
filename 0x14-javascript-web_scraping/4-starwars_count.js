@@ -1,5 +1,4 @@
 #!/usr/bin/node
-
 const request = require('request');
 const id = 18;
 const character = `/api/people/${id}/`;
