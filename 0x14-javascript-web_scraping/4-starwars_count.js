@@ -9,14 +9,16 @@ function countMovies (url, character) {
       console.log(err);
       return;
     }
-    const movies = JSON.parse(body).results;
-    let count = 0;
-    for (const movie of movies) {
-      if (movie.characters.includes(character)) {
-        count++;
+    if (response.statusCode === 200) {
+      const movies = JSON.parse(body).results;
+      let count = 0;
+      for (const movie of movies) {
+        if (movie.characters.includes(character)) {
+          count++;
+        }
       }
+      console.log(count);
     }
-    console.log(count);
   });
 }
 countMovies(url, character);
