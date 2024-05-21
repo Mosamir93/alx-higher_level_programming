@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
 const request = require('request');
-const id = 18
-const characterurl = `https://swapi-api.alx-tools.com/api/people/${id}/`;
+const id = 18;
+const character = `/api/people/${id}/`;
 const url = process.argv[2];
 request.get(url, (err, response, body) => {
   if (err) {
@@ -13,7 +13,7 @@ request.get(url, (err, response, body) => {
     const movies = JSON.parse(body).results;
     let count = 0;
     for (const movie of movies) {
-      if (movie.characters.includes(characterurl)) {
+      if (movie.characters.find(el => el.includes(character))) {
         count++;
       }
     }
